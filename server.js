@@ -29,11 +29,24 @@ server.listen(port, () => {
 // Emit at receive chat.
 // chat: ChatItem
 liveChat.on("chat", (chatItem) => {
+  let realmsg = ""
+
+    for(i = 0; i < chatItem.message.length; i++){
+      
+      if(chatItem.message[i]['text'] !== undefined){
+        //console.log(chatItem.message[i]['text'])
+        realmsg += chatItem.message[i]['text']
+      }else{
+        //console.log(chatItem.message[i]['emojiText'])
+        realmsg += chatItem.message[i]['emojiText']
+      }
+    }
+  
     io.emit('output', {
         platform: "youtube",
         icon: chatItem.author.thumbnail.url,
         name: chatItem.author.name,
-        message: chatItem.message[0]["text"]
+        message: realmsg
     });
 })
 
