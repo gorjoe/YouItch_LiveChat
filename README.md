@@ -1,13 +1,12 @@
 <p align="center">
-  <img src="./icon/YouItch.png" width="350" title="YouItch">
+  <img src="./icon/YouItch.png" href="https://youtu.be/WbOLsRc5sPU" width="350" title="YouItch">
 </p>
 
 # YouItch_LiveChat
 Create a Node.js webserver and send out YouTube and Twitch Live Chat (combine it together)
 
 # Demo Video
-<p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WbOLsRc5sPU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+https://youtu.be/WbOLsRc5sPU
 
 # Features
 * Fully customizable CSS
