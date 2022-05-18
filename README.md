@@ -6,7 +6,8 @@
 Create a Node.js webserver and send out YouTube and Twitch Live Chat (combine it together)
 
 # Demo Video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WbOLsRc5sPU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WbOLsRc5sPU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
 # Features
 * Fully customizable CSS
