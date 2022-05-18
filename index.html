@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Example</title>
+        <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <style>
+            html{
+                scroll-behavior: smooth;
+            }
+            body {
+                background-color: transparent;
+            }
+            img {
+                border-radius: 50%;
+            }
+            .comment {
+                background-color: #fff;
+                overflow: hidden;
+                padding: 20px;
+                border-radius: 50px;
+                margin-bottom: 15px;
+                opacity: 1;
+            }
+            .icon {
+                float: left;
+                left: 5px;
+                top: 10px;
+                margin: 2px 0px 0px 4px;
+                box-shadow: 0px 1px 10px 2px #000;
+            }
+            .user {
+                overflow: hidden;
+                padding-left: 20px;
+            }
+            .name {
+                float: left;
+                color: white;
+                font-size: 20px;
+                font-family: 'Noto Sans JP', sans-serif-bold;
+            }
+            .message {
+                float: left;
+                clear: left;
+                color: white;
+                font-size: 20px;
+                font-family: 'Noto Sans JP', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="message-container"></div>
+    <template data-msg-template>
+        <div id="comment" class="comment animate__animated animate__backInRight">
+            <img src="https://riverlegacy.org/wp-content/uploads/2021/07/blank-profile-photo.jpeg" alt="icon" width="50" height="50" class="icon" data-icon>
+            <div class="user" >
+                <div class="name" data-name></div>
+                <div class="message" data-message></div>
+            </div>
+        </div>
+    </template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+        <script>
+            var socket = io();
+            socket.on('output', data => {
+                console.log(data);
+                ///const messageElement = document.createElement('div')
+                //messageElement.innerText = data
+                //messageContainer.append(messageElement)
+
+                const messageContainer = document.getElementById('message-container')
+                const userMsgTemplate = document.querySelector("[data-msg-template]")
+
+                const msg = userMsgTemplate.content.cloneNode(true).children[0]
+                //const platform = msg.querySelector("[data-platform]")
+                const icon = msg.querySelector("[data-icon]")
+                const name = msg.querySelector("[data-name]")
+                const message = msg.querySelector("[data-message]")
+
+                if (data.platform == "youtube") {
+                    msg.style.backgroundColor = '#FF0000' ;
+                    msg.style.boxShadow = '2px 3px 10px 2px #ff0000';
+
+                } else if (data.platform == "twitch") {
+                    msg.style.backgroundColor = '#9147FF' ;
+                    msg.style.boxShadow = '2px 3px 10px 2px #7836d9';
+                }
+
+                icon.src = data.icon
+                name.textContent = data.name
+                message.textContent = data.message
+                messageContainer.append(msg)
+
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+        </script>
+    </body>
+</html>
