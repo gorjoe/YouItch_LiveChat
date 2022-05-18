@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./icon/YouItch.png" href="https://youtu.be/WbOLsRc5sPU" width="350" title="YouItch">
+  <img src="./icon/YouItch.png" width="350" title="YouItch">
 </p>
 
 # YouItch_LiveChat
