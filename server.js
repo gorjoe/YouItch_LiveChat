@@ -4,7 +4,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const { LiveChat } = require("youtube-chat")
 const tmi = require('tmi.js');
-const liveChat = new LiveChat({liveId: "your YouTube live chat ID here"})
+const liveChat = new LiveChat({channelId: "CHANNEL_ID_HERE"})
 const https = require('https');
 
 app.get('/', (req, res) => {
